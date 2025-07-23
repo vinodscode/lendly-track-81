@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { formatCurrency, useLoanStore } from "@/lib/store";
@@ -38,7 +37,7 @@ const LoanCard = ({ loan, className }: LoanCardProps) => {
             <h3 className="text-base font-medium line-clamp-1">{loan.borrowerName}</h3>
             <div className="flex items-center gap-2">
               <Badge variant="outline" className="bg-gradient-to-r from-emerald-50 to-teal-50 text-emerald-700 dark:from-emerald-900/30 dark:to-teal-900/30 dark:text-emerald-400 border-emerald-100 dark:border-emerald-800/30 px-1.5 py-0 text-[10px]">
-                {loan.interestRate}% Interest
+                {loan.interestRate}% <span style={{fontSize: '12px'}}>Interest</span>
               </Badge>
               <Badge 
                 variant="outline" 
