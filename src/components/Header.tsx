@@ -1,8 +1,7 @@
 
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { useAuth } from "@/contexts/AuthContext"; 
-import { LogOut, Settings, Calculator, Menu } from "lucide-react";
+import { Settings, Calculator, Menu } from "lucide-react";
 import { formatCurrency } from "@/lib/store";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
@@ -18,7 +17,6 @@ interface HeaderProps {
 
 const Header = ({ totalAmount, monthlyInterest }: HeaderProps) => {
   const navigate = useNavigate();
-  const { signOut } = useAuth();
   const isMobile = useIsMobile();
   
   return (
@@ -68,16 +66,6 @@ const Header = ({ totalAmount, monthlyInterest }: HeaderProps) => {
                       <span className="text-sm font-medium">Theme</span>
                       <ThemeToggle />
                     </div>
-                    
-                    <Button 
-                      variant="ghost" 
-                      size="sm"
-                      onClick={signOut}
-                      className="flex items-center justify-start gap-2 w-full text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
-                    >
-                      <LogOut size={16} />
-                      <span>Sign Out</span>
-                    </Button>
                   </div>
                 </SheetContent>
               </Sheet>
@@ -117,15 +105,6 @@ const Header = ({ totalAmount, monthlyInterest }: HeaderProps) => {
                 </SheetContent>
               </Sheet>
               
-              <Button 
-                variant="ghost" 
-                size="sm"
-                onClick={signOut}
-                className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100"
-              >
-                <LogOut size={16} className="mr-2" />
-                Sign Out
-              </Button>
             </div>
           )}
         </div>

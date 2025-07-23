@@ -3,18 +3,14 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import Index from "./pages/Index";
 import AddLoan from "./pages/AddLoan";
 import LoanDetails from "./pages/LoanDetails";
 import EditLoan from "./pages/EditLoan";
 import NotFound from "./pages/NotFound";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
 import Calculator from "./pages/Calculator";
-import { AuthProvider } from "./contexts/AuthContext";
-import { ProtectedRoute } from "./components/ProtectedRoute";
 import { useEffect } from "react";
 
 // Remove App.css import as it conflicts with our styling
@@ -41,25 +37,14 @@ const App = () => {
           <Toaster />
           <Sonner />
           <BrowserRouter>
-            <AuthProvider>
-              <Routes>
-                {/* Public routes */}
-                <Route path="/login" element={<Login />} />
-                <Route path="/signup" element={<Signup />} />
-                
-                {/* Protected routes - require authentication */}
-                <Route element={<ProtectedRoute />}>
-                  <Route path="/" element={<Index />} />
-                  <Route path="/add-loan" element={<AddLoan />} />
-                  <Route path="/loans/:id" element={<LoanDetails />} />
-                  <Route path="/loans/:id/edit" element={<EditLoan />} />
-                  <Route path="/calculator" element={<Calculator />} />
-                </Route>
-                
-                {/* Redirect to signup for initial load */}
-                <Route path="*" element={<Navigate to="/signup" replace />} />
-              </Routes>
-            </AuthProvider>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/add-loan" element={<AddLoan />} />
+              <Route path="/loans/:id" element={<LoanDetails />} />
+              <Route path="/loans/:id/edit" element={<EditLoan />} />
+              <Route path="/calculator" element={<Calculator />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
           </BrowserRouter>
         </TooltipProvider>
       </ThemeProvider>

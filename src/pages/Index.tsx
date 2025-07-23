@@ -7,14 +7,12 @@ import Header from "@/components/Header";
 import EmptyState from "@/components/EmptyState";
 import LoanCard from "@/components/LoanCard";
 import { useLoanStore } from "@/lib/store";
-import { useAuth } from "@/contexts/AuthContext";
 import { Skeleton } from "@/components/ui/skeleton";
 import SearchBox from "@/components/SearchBox";
 import { Loan } from "@/lib/types";
 
 const Index = () => {
   const navigate = useNavigate();
-  const { user, isLoading: isAuthLoading } = useAuth();
   
   const loans = useLoanStore((state) => state.loans);
   const isLoading = useLoanStore((state) => state.isLoading);
@@ -23,23 +21,12 @@ const Index = () => {
   const getMonthlyInterest = useLoanStore((state) => state.getMonthlyInterest);
   const getFilteredLoans = useLoanStore((state) => state.getFilteredLoans);
   
-  console.log("Index: Rendering", { 
-    user: !!user,
-    isAuthLoading,
-    isStoreLoading: isLoading,
-    loansCount: loans.length
-  });
-  
   useEffect(() => {
-    console.log("Index: useEffect triggered", { userId: user?.id });
-    
-    if (user && !isAuthLoading) {
-      console.log("Index: Fetching loans");
-      fetchLoans().catch(err => {
-        console.error("Error fetching loans in Index page:", err);
-      });
-    }
-  }, [user, isAuthLoading, fetchLoans]);
+    console.log("Index: Fetching loans");
+    fetchLoans().catch(err => {
+      console.error("Error fetching loans in Index page:", err);
+    });
+  }, [fetchLoans]);
   
   const renderLoading = () => (
     <div className="container px-4 sm:px-6 max-w-screen-2xl mx-auto">
@@ -69,7 +56,7 @@ const Index = () => {
     </div>
   );
   
-  if (isAuthLoading || isLoading) {
+  if (isLoading) {
     console.log("Index: Showing loading state");
     return (
       <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 w-full">
