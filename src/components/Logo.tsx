@@ -27,7 +27,7 @@ const Logo = ({
       </div>
       
       {variant === "horizontal" && <div className="font-semibold tracking-tight text-4xl">
-          <h1 className="sm:pb-0 pb-[15px]">
+          <h1 className="pb-[15px]" style={{minHeight: 'fit-content'}}>
             <span style={{color: 'rgb(0, 128, 255)', fontWeight: 'normal'}}>
               ரூ
             </span>
