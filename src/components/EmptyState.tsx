@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { PlusCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -9,8 +8,14 @@ const EmptyState = () => {
   return (
     <div className="flex flex-col items-center justify-center px-4 py-16 space-y-6 animate-fade-in">
       <div className="relative w-20 h-20 flex items-center justify-center">
-        <div className="absolute inset-0 bg-primary/10 rounded-full animate-pulse"></div>
-        <span className="text-5xl font-semibold text-primary">₹</span>
+        <span className="text-5xl font-semibold text-primary">
+          <h1 style={{color: 'rgba(0, 0, 0, 0)', letterSpacing: '-0.4px'}}>
+            <span style={{color: 'rgb(0, 128, 255)'}}>
+              ரூ
+            </span>
+          </h1>
+        </span>
+        <div className="absolute bg-primary/10 rounded-full animate-pulse" style={{left: '4px', top: '19px', right: '0px', bottom: '0px'}}></div>
       </div>
       
       <div className="text-center max-w-xs">

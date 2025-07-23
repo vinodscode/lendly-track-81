@@ -26,8 +26,13 @@ const Logo = ({
         
       </div>
       
-      {variant === "horizontal" && <div className="font-semibold tracking-tight">
-          <span className={`${sizes[size].text} bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent`}>ரூ</span>
+      {variant === "horizontal" && <div className="font-semibold tracking-tight text-4xl">
+          <h1>
+            <span style={{color: 'rgb(0, 128, 255)', fontWeight: 'normal'}}>
+              ரூ
+            </span>
+          </h1>
+          <h2></h2>
         </div>}
     </div>;
 };
