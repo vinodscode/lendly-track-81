@@ -69,7 +69,7 @@ const Index = () => {
   }
   
   const filteredLoans = getFilteredLoans();
-  console.log("Index: Rendering content with", filteredLoans.length, "filtered loans");
+  console.log("Index: Search query:", searchQuery, "Total loans:", loans.length, "Filtered loans:", filteredLoans.length);
   
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 w-full">
