@@ -44,6 +44,10 @@ const AddLoanForm = ({ className }: AddLoanFormProps) => {
       newErrors.interestRate = "Interest rate must be between 0-100%";
     }
     
+    if (!startDate) {
+      newErrors.startDate = "Please select a start date";
+    }
+
     if (loanType === 'Gold') {
       const goldGramsValue = parseFloat(goldGrams);
       if (!goldGrams || isNaN(goldGramsValue) || goldGramsValue <= 0) {
@@ -64,7 +68,7 @@ const AddLoanForm = ({ className }: AddLoanFormProps) => {
       borrowerName,
       amount: parseFloat(amount),
       interestRate: parseFloat(interestRate),
-      startDate: new Date(),
+      startDate: startDate!,
       notes: notes.trim() || undefined,
       loanType,
       goldGrams: loanType === 'Gold' ? parseFloat(goldGrams) : undefined,
