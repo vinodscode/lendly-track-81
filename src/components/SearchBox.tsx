@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { Search, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -9,7 +8,8 @@ const SearchBox = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
   const searchRef = useRef<HTMLDivElement>(null);
-  const { setSearchQuery, clearSearch } = useLoanStore();
+  const setSearchQuery = useLoanStore((state) => state.setSearchQuery);
+  const clearSearch = useLoanStore((state) => state.clearSearch);
 
   // Handle search input changes
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
