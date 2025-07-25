@@ -1,4 +1,3 @@
-
 import { create } from 'zustand';
 import { v4 as uuidv4 } from 'uuid';
 import { Loan, Payment } from './types';
@@ -30,7 +29,19 @@ export type LoanStoreState = {
 const getLocalStorageLoans = (): Loan[] => {
   try {
     const loans = localStorage.getItem('loans');
-    return loans ? JSON.parse(loans) : [];
+    if (!loans) return [];
+
+    const parsedLoans = JSON.parse(loans);
+
+    // Convert string dates back to Date objects
+    return parsedLoans.map((loan: any) => ({
+      ...loan,
+      startDate: new Date(loan.startDate),
+      payments: loan.payments?.map((payment: any) => ({
+        ...payment,
+        date: new Date(payment.date),
+      })) || []
+    }));
   } catch (error) {
     console.error("Error fetching loans from local storage:", error);
     return [];
