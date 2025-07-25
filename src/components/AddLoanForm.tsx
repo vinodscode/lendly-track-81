@@ -165,6 +165,19 @@ const AddLoanForm = ({ className }: AddLoanFormProps) => {
             <p className="text-sm text-destructive">{errors.interestRate}</p>
           )}
         </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="startDate">Start Date</Label>
+          <DatePicker
+            date={startDate}
+            onDateChange={setStartDate}
+            placeholder="Select loan start date"
+            className={errors.startDate ? "border-destructive" : ""}
+          />
+          {errors.startDate && (
+            <p className="text-sm text-destructive">{errors.startDate}</p>
+          )}
+        </div>
         
         <div className="space-y-2">
           <Label htmlFor="notes">Notes (Optional)</Label>
