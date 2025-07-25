@@ -1,10 +1,10 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { DatePicker } from "@/components/ui/date-picker";
 import { useLoanStore } from "@/lib/store";
 import { ArrowLeft, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -21,6 +21,7 @@ const AddLoanForm = ({ className }: AddLoanFormProps) => {
   const [borrowerName, setBorrowerName] = useState("");
   const [amount, setAmount] = useState("");
   const [interestRate, setInterestRate] = useState("");
+  const [startDate, setStartDate] = useState<Date | undefined>(new Date());
   const [notes, setNotes] = useState("");
   const [loanType, setLoanType] = useState<'Gold' | 'Bond'>('Gold');
   const [goldGrams, setGoldGrams] = useState("");
