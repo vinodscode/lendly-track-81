@@ -5,6 +5,7 @@ import { formatCurrency } from "@/lib/store";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import Logo from "./Logo";
+import NotificationDropdown from "./NotificationDropdown";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 interface HeaderProps {
@@ -36,6 +37,8 @@ const Header = ({ totalAmount, monthlyInterest }: HeaderProps) => {
               >
                 <Calculator size={18} />
               </Button>
+
+              <NotificationDropdown />
               
               <Sheet>
                 <SheetTrigger asChild>
@@ -80,6 +83,8 @@ const Header = ({ totalAmount, monthlyInterest }: HeaderProps) => {
                 <Calculator size={16} />
                 <span>Calculator</span>
               </Button>
+
+              <NotificationDropdown />
               
               <Sheet>
                 <SheetTrigger asChild>
