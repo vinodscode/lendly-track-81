@@ -51,7 +51,7 @@ const NotificationDropdown = () => {
         if (isWithinInterval(dueDate, { start: startOfDay(today), end: endOfDay(endDate) })) {
           // Check if interest payment already made for this month
           const hasPaymentThisMonth = loan.payments.some((payment) => {
-            const paymentDate = new Date(payment.date);
+            const paymentDate = payment.date instanceof Date ? payment.date : new Date(payment.date);
             return (
               payment.type === 'interest' &&
               paymentDate.getMonth() === dueDate.getMonth() &&
