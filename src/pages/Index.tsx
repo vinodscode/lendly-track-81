@@ -15,6 +15,7 @@ const Index = () => {
   
   const loans = useLoanStore((state) => state.loans);
   const isLoading = useLoanStore((state) => state.isLoading);
+  const searchQuery = useLoanStore((state) => state.searchQuery);
   const fetchLoans = useLoanStore((state) => state.fetchLoans);
   const getTotalLent = useLoanStore((state) => state.getTotalLent);
   const getMonthlyInterest = useLoanStore((state) => state.getMonthlyInterest);
