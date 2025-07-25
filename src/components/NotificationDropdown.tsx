@@ -36,9 +36,12 @@ const NotificationDropdown = () => {
     loans.forEach((loan) => {
       // Calculate monthly interest amount
       const monthlyInterest = (loan.amount * loan.interestRate) / 100 / 12;
-      
+
+      // Ensure startDate is a Date object
+      const startDate = loan.startDate instanceof Date ? loan.startDate : new Date(loan.startDate);
+
       // Get the day of month from start date
-      const startDay = loan.startDate.getDate();
+      const startDay = startDate.getDate();
       
       // Check if interest is due in the next 7 days
       const currentMonth = new Date(today.getFullYear(), today.getMonth(), startDay);
