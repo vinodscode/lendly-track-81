@@ -37,7 +37,7 @@ const LoanCard = ({ loan, className }: LoanCardProps) => {
             <h3 className="text-base font-medium line-clamp-1">{loan.borrowerName}</h3>
             <div className="flex items-center gap-2">
               <Badge variant="outline" className="bg-gradient-to-r from-emerald-50 to-teal-50 text-emerald-700 dark:from-emerald-900/30 dark:to-teal-900/30 dark:text-emerald-400 border-emerald-100 dark:border-emerald-800/30 px-1.5 py-0 text-[10px]">
-                {loan.interestRate}%&nbsp;<span style={{fontSize: '12px'}}>Interest</span>
+                {loan.interestRate}%&nbsp;<span style={{fontSize: '12px'}}><span style={{fontWeight: 'normal'}}>Interest</span></span>
               </Badge>
               <Badge 
                 variant="outline" 
@@ -46,7 +46,7 @@ const LoanCard = ({ loan, className }: LoanCardProps) => {
                   loanTypeColors[loan.loanType || 'Gold']
                 )}
               >
-                {loan.loanType || 'Gold'}
+                <span style={{fontWeight: 'normal'}}>{loan.loanType || 'Gold'}</span>
                 {loan.loanType === 'Gold' && loan.goldGrams ? ` (${loan.goldGrams}g)` : ''}
               </Badge>
             </div>

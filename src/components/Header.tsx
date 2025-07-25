@@ -1,4 +1,3 @@
-
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Settings, Calculator, Menu } from "lucide-react";
@@ -117,7 +116,7 @@ const Header = ({ totalAmount, monthlyInterest }: HeaderProps) => {
             
             <div className="relative z-10">
               <div className="flex items-center gap-2 mb-1">
-                <div className="w-6 h-6 flex items-center justify-center rounded-full bg-blue-500/20 dark:bg-blue-500/30">
+                <div className="w-6 h-6 flex items-center justify-center rounded-full bg-blue-500/20 dark:bg-blue-500/30" style={{paddingBottom: '5px'}}>
                   <span className="text-blue-700 dark:text-blue-300 text-xs font-bold">ரு</span>
                 </div>
                 <h2 className="text-xs sm:text-sm text-blue-800 dark:text-blue-300 uppercase tracking-wider font-medium">Total Amount Lent</h2>
@@ -133,7 +132,7 @@ const Header = ({ totalAmount, monthlyInterest }: HeaderProps) => {
             
             <div className="relative z-10">
               <div className="flex items-center gap-2 mb-1">
-                <div className="w-6 h-6 flex items-center justify-center rounded-full bg-amber-500/20 dark:bg-amber-500/30">
+                <div className="w-6 h-6 flex items-center justify-center rounded-full bg-amber-500/20 dark:bg-amber-500/30" style={{paddingBottom: '5px'}}>
                   <span className="text-amber-700 dark:text-amber-300 text-xs font-bold">ரு</span>
                 </div>
                 <h2 className="text-xs sm:text-sm text-amber-800 dark:text-amber-300 uppercase tracking-wider font-medium">Monthly Interest</h2>
